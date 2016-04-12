@@ -265,18 +265,16 @@ haskell脚本库在将来将会包含入你期望的Pythong或者Ruby的特性�
 
 ## 数控编程
 
-**Rating:** Immature
+**排名:** 不成熟
 
-Haskell's numerical programming story is not ready, but steadily improving.
+haskell的数控编程刚刚开始，有待提高。
+我在这方面的主要经验是从几年前做的数值计算涉及大量的矢量和矩阵的生物信息学编程,我的评价在很大程度上是由经验决定。
+生态存在的最大问题是：
 
-My main experience in this area was from a few years ago doing numerical
-programming for bioinformatics that involved a lot of vector and matrix
-manipulation and my rating is largely colored by that experience.
+* 非常少的矩阵api
+* 基于规则的优化重写
 
-The biggest issues that the ecosystem faces are:
-
-* Really clunky matrix library APIs
-* Fickle rewrite-rule-based optimizations
+当
 
 When the optimizations work they are amazing and produce code competitive with
 C.  However, small changes to your code can cause the optimizations to
@@ -315,69 +313,48 @@ upward.
 
 <br>
 
-## Front-end web programming
+## web前端
 
-**Rating:** Immature
+**排名:** 不成熟
 
-This boils down to Haskell's ability to compile to Javascript.  `ghcjs` is the
-front-runner, but for a while setting up `ghcjs` was non-trivial.  Now that
-the `stack` build tool supports `ghcjs` you can very easily set up a new `ghcjs`
-project by following these instructions:
+这个归因于haskell可以编程成js的特性， `gjcjs` 是一个前端工具，但是建立在`ghcjs`上是一个非平凡的，现在 工具链支持 `ghchs` 你可以非常容易通过下面的几个工具来建立一个新的 `ghcjs` 项目:
 
 * [Stack + GHCJS support](http://docs.haskellstack.org/en/stable/ghcjs/)
 
-One of the distinctive features of `ghcjs` compared to other competing
-Haskell-to-Javascript compilers is that a huge number of Haskell libraries work
-out of the box with `ghcjs` because it supports most of `ghc`'s primitive
-operations.
+`ghchs` 区分与其他的haskell转js的编译器的一个巨大的不同点在于许多的haskell库运行在盒子之外，因为他支持大部分的 `ghc` 原始操作
+值得一提的是，这里存在两种你值的尝试用作前端开发的haskell相像的语言， `elm` 和 `purescript`。
+他们被应用在生产环境中，而且各自拥有活跃的维护者和社区。`purescript` 时最像haskell的语言。
 
-I would also like to mention that there are two Haskell-like languages that
-you should also try out for front-end programming: `elm` and `purescript`.
-These are both used in production today and have equally active maintainers and
-communities of their own.  `purescript` in particular is extremely similar to
-Haskell.
 
-**Areas for improvement:**
+**有待提升的地方:**
 
-* There needs to be a clear story for smooth integration with existing
-  Javascript projects
-* There need to be many more educational resources targeted at non-experts
-  explaining how to translate existing front-end programming idioms to Haskell
+* 针对已经存在的js项目需要一个明确清晰的解决方案
+* 需要更多的教育资源针对没有经验的开发者， 解释如何转换已经存在的前端代码到haskell
 * There need to be several well-maintained and polished Haskell libraries for
   front-end programming
-* The whole `ghcjs` ecosystem needs much more documentation.  There's not even
-  a basic tutorial on how to actually use `ghcjs`
+* 整个 ghchs生态都需要更多的文档，甚至没有一个基本的如何使用ghcjs教程
 
-**Notable Haskell-to-Javascript compilers:**
+**值得关注的haskell to javascript 编译器:**
 
 * [`ghcjs`](https://github.com/ghcjs/ghcjs)
 * [`haste`](https://hackage.haskell.org/package/haste-compiler)
 
-**Notable libraries:**
+**值得关注的库:**
 
 * [reflex](https://hackage.haskell.org/package/reflex) / [reflex-dom](https://hackage.haskell.org/package/reflex-dom) - Functional reactive programming library
   for the front end
 
 <br>
 
-## Distributed programming
+## 分布式编程
 
-**Rating:** Immature
+**排名:** 不成熟
 
-This is sort of a broad area since I'm using this topic to refer to both
-distributed computation (for analytics) and distributed service architectures.
-For distributed service architectures Haskell is catching up to its peers with
-service toolkit libraries, but for distributed computation Haskell still lags
-behind.
+我使用这个题目来特指 分布式运算和分布式服务。 对于分布式服务架构haskell凭借一些列的服务端工具库可以跟其他的相并列。但是对于分布式运算haskell还是还是慢一拍的。
+通过Cloud Hashkell项目在haskell中复制Erlang-like函数，还需要很多的工作要做，而不仅仅是创建底层级的原始支持 分布/网络/传输， 而且还需要装配上Erlang的 OTP。在高层面的库已经停止，但是开发底层面的库依然是对分布式运算有意的。
 
-There has been a lot of work in replicating Erlang-like functionality in
-Haskell through the Cloud Haskell project, not just in creating the low-level
-primitives for code distribution / networking / transport, but also in
-assembling a Haskell analog of Erlang's OTP.  Work on the higher-level libraries
-seems to have stopped, but the low-level libraries are still good for
-distributing computation.
 
-**Areas for improvement:**
+**有待提升的空间:**
 
 * We need more analytics libraries.  Haskell has no analog of `scalding` or
   `spark`.  The most we have is just a Haskell wrapper around `hadoop`
@@ -399,9 +376,13 @@ distributing computation.
 
 <br>
 
-## Standalone GUI applications
+## 独立的GUI应用
 
-**Rating:** Immature
+**排名:** 不成熟
+
+所有的haskell工具库都是封装了其他语言写的工具库，我最后以此查看 `gtk` bindings
+
+这里说不成熟的原因在于
 
 All Haskell GUI libraries are wrappers around toolkits written in other
 languages (such as GTK+ or Qt).  The last time I checked the `gtk` bindings
