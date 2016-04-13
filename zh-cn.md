@@ -1,28 +1,17 @@
-# State of the Haskell ecosystem
+# haskell生态状态
 
-In this post I will describe the current state of the Haskell ecosystem to the
-best of my knowledge and its suitability for various programming domains and
-tasks.  The purpose of this post is to discuss both the good and the bad by
-advertising where Haskell shines while highlighting where I believe there is
-room for improvement.
+在本文中我会尽我的知识水平，讲解haskell实用的多样的编程领域、任务。这篇文章的目的是讨论优劣，顺便广告一下我认为的haskell能够有所提升的地方。
 
-This post is grouped into two sections: the first section covers Haskell's
-suitability for particular programming application domains (i.e. servers,
-games, or data science) and the second section covers Haskell's suitability
-for common general-purpose programming needs (such as testing, IDEs, or
-concurrency).
+这篇文章被划分为两部分： 第一部分haskell适合的特殊的编程领域， 诸如：服务端、游戏、数据科学。第二部分则包含haskell适用的一般编程需要， 诸如： 测试，、IDE、还有高并发
 
-The topics are roughly sorted from greatest strengths to greatest weaknesses.
-Each programming area will also be summarized by a single rating of either:
+这篇文章按照优势--劣势来排列， 每一个编程领域将会总结如下：
 
-* **Best in class**: the best experience in any language
-* **Mature**: suitable for most programmers
-* **Immature**: only acceptable for early-adopters
-* **Bad**: pretty unusable
+* **优秀**: 在所有语言中的最佳选择
+* **成熟**: 适合所有的编程者
+* **不成熟**: 只被积极的探索者所接受
+* **坏**: 不能用
 
-The more positive the rating the more I will support the rating with
-success stories in the wild.  The more negative the rating the more I will
-offer constructive advice for how to improve things.
+在正向的排序中，我会列举成功的案例。 在负向的排序中，我会提供一些完善实物的建设性的意见
 
 **Disclaimer #1:** I obviously don't know everything about the Haskell
 ecosystem, so whenever I am unsure I will make a ballpark guess and clearly
@@ -55,9 +44,9 @@ either defend my decision or change my mind.
 
 ## Table of Contents
 
-* [Application Domains](#application-domains)
-  * [Compilers](#compilers)
-  * [Server-side programming](#server-side-programming)
+* [应用程序领域](#application-domains)
+  * [编译器](#compilers)
+  * [服务端编程](#server-side-programming)
   * [Scripting / Command-line applications](#scripting--command-line-applications)
   * [Numerical programming](#numerical-programming)
   * [Front-end web programming](#front-end-web-programming)
@@ -363,10 +352,10 @@ upward.
 
 **Notable libraries:**
 
-* [`glue-core`](https://hackage.haskell.org/package/glue-core) / 
+* [`glue-core`](https://hackage.haskell.org/package/glue-core) /
   [`glue-ekg`](https://hackage.haskell.org/package/glue-ekg) /
   [`glue-example`](https://hackage.haskell.org/package/glue-example) - Service
-  toolkit supporting 
+  toolkit supporting
 * [`haxl`](https://hackage.haskell.org/package/haxl) - Facebook library for
   efficient batching and scheduling of concurrent data access
 * [`distributed-process`](https://hackage.haskell.org/package/distributed-process) / [`distributed-process-*`](https://hackage.haskell.org/packages/search?terms=distributed-process) - Haskell analog to Erlang
@@ -454,7 +443,7 @@ Github page for the `HLearn` project:
 
 * [Github repository for `HLearn`](https://github.com/mikeizbicki/HLearn)
 
-Tweag.io has released `Sparkle`, a Haskell integration with Spark.  This 
+Tweag.io has released `Sparkle`, a Haskell integration with Spark.  This
 enables the use of MLib from Haskell.  MLib is widely used in the industry
 for machine learning. Sparkle itself is fairly new.
 
@@ -586,7 +575,7 @@ foreign function interface.  For console games, you have no hope.
 * [`GPipe`](https://hackage.haskell.org/package/GPipe) - Type-safe OpenGL API
   that also lets you embed shader code directly within Haskell.  See the
   [GPipe wiki](https://wiki.haskell.org/GPipe) to learn more
-  
+
 
 <br>
 
@@ -652,18 +641,18 @@ this branch of the Haskell ecosystem.
 **Rating:** Immature
 
 On hobbyist boards like the Raspberry Pi its possible to compile haskell code
-with ghc.  There are limitations; some libraries have problems on the arm platform, 
-and ghci only works on newer compilers.  Cross compiling doesn't work with 
-template haskell.  Stack and other large projects can take more than 1g of memory 
+with ghc.  There are limitations; some libraries have problems on the arm platform,
+and ghci only works on newer compilers.  Cross compiling doesn't work with
+template haskell.  Stack and other large projects can take more than 1g of memory
 to compile.
 
 However, if the haskell code builds, it runs with respectable performance on these machines.
 
 **Arch (Banana Pi) **
 update 2016-02-25:
-* installed today from pacman, current versions are ghc 7.10.3 and cabal-install 1.22.6.0 
+* installed today from pacman, current versions are ghc 7.10.3 and cabal-install 1.22.6.0
 * a compatable version of llvm also installed automatically.
-* ghci passes hello world test; cabal/ghc compiled a modest project normally. 
+* ghci passes hello world test; cabal/ghc compiled a modest project normally.
 
 **Raspian (Raspberry Pi, pi2, others)**
 * current version: ghc 7.4, cabal-install 1.14
@@ -894,7 +883,7 @@ and asking the compiler to infer them for you:
 
 ```haskell
 >>> let addAndShow x y = show (x + y)
->>> :type addAndShow 
+>>> :type addAndShow
 addAndShow :: (Num a, Show a) => a -> a -> String
 ```
 
